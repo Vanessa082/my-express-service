@@ -17,6 +17,8 @@ return{
 function read (id, cb){
   if(!(db.hasOwnProperty)) {
     const err = Error('not found')
-    setImmediate(() =>cb(null, db[id]))
+    setImmediate(() =>cb(err))
+    return
   }
+  setImmediate(() =>cb(null, db[id]))
 }
