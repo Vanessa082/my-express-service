@@ -28,4 +28,7 @@ const server = http.createServer((req, res) => {
   }))
 })
 
-server.listen(process)
+server.listen(process.env.PORT || 4000, () =>{
+  const { port } = server.address
+  console.log('Brand service listening on localhost port: ' + port)
+})
