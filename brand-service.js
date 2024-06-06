@@ -4,6 +4,7 @@ const http = require('http')
 const url = require('url')
 const brands = ['Gazzele', 'Batavus', 'Azor', 'Cortina', 'Giants', 'Sparta']
 const MISSING = 3
+const PORT = process.env.PORT
 
 const server = http.createServer((req, res) => {
   const { pathname } = url.parse(req.url)
@@ -28,7 +29,7 @@ const server = http.createServer((req, res) => {
   }))
 })
 
-server.listen(process.env.PORT || 4000, () =>{
+server.listen( PORT || 0, () =>{
   const { port } = server.address
-  console.log('Brand service listening on localhost port: ' + port)
+  console.log('Brand service listening on localhost port: ' + PORT)
 })
